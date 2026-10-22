@@ -65,10 +65,21 @@ public class ControladorPerfil {
 			return false;
 		}
 
+		if (repositorio.verificarExistenciaPerfil()) {
+			if (telaCadastrarPerfil != null) {
+				telaCadastrarPerfil.exibirMensagemErro("Já existe um perfil cadastrado nesta máquina. Por favor, faça login.");
+			}
+			return false;
+		}
+
 		boolean verificar = repositorio.criarPerfil(nome, senha);
 
 		if (verificar) {
 			sessao.autenticar(nome, senha);
+		} else {
+			if (telaCadastrarPerfil != null) {
+				telaCadastrarPerfil.falhaDeCadastro();
+			}
 		}
 
 		return verificar;

@@ -95,6 +95,11 @@ public class ControladorContaBancaria {
 		if (perfilAtual != null) {
 			ContaBancaria conta = perfilAtual.criarConta(nomeDaContaBancaria, tipo, saldo, dataDeReferencia, nomeDoBanco, numeroDaAgencia, numeroDaConta);
 			perfilAtual.adicionarConta(conta);
+		} else {
+			if (telaCadastrarContaBancaria != null) {
+				telaCadastrarContaBancaria.exibirMensagemErro("Nenhum perfil ativo na sessão.");
+			}
+			return;
 		}
 
 		if (telaCadastrarContaBancaria != null) {
@@ -119,6 +124,11 @@ public class ControladorContaBancaria {
 		if (perfilAtual != null) {
 			ContaBancaria conta = perfilAtual.criarConta(nomeDaContaBancaria, tipo, saldo, dataDeReferencia);
 			perfilAtual.adicionarConta(conta);
+		} else {
+			if (telaCadastrarContaBancaria != null) {
+				telaCadastrarContaBancaria.exibirMensagemErro("Nenhum perfil ativo na sessão.");
+			}
+			return;
 		}
 
 		if (telaCadastrarContaBancaria != null) {
