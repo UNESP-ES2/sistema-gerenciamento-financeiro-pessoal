@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="20.0" stylesheets="@css/theme.css"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="br.unesp.fct.sgfp.view.TelaCadastrarPerfil">
+    <padding>
+        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+    </padding>
+
+    <!-- Cabeçalho SGFP (RNF5.4) -->
+    <VBox alignment="CENTER" spacing="6.0">
+        <Label text="SGFP" styleClass="title-large" />
+        <Label text="Cadastro Inicial do Titular" styleClass="subtitle" />
+    </VBox>
+
+    <!-- Card de Cadastro -->
+    <VBox maxWidth="440.0" spacing="16.0" styleClass="card">
+        <VBox spacing="4.0" styleClass="card-header">
+            <Label text="Novo Perfil de Usuário" styleClass="title-medium" />
+            <Label text="Crie seu perfil de acesso para gerenciar suas finanças pessoais" styleClass="subtitle" wrapText="true" />
+        </VBox>
+
+        <!-- Formulário -->
+        <VBox spacing="14.0">
+            <VBox spacing="6.0">
+                <Label text="Nome de Usuário (4 a 18 letras, sem espaços)" styleClass="text-label" />
+                <TextField fx:id="campoNome" promptText="Ex: usuario" />
+            </VBox>
+
+            <VBox spacing="6.0">
+                <Label text="Senha (4 a 18 caracteres)" styleClass="text-label" />
+                <PasswordField fx:id="campoSenha" promptText="Defina sua senha de acesso" />
+            </VBox>
+
+            <VBox spacing="6.0">
+                <Label text="Confirmação da Senha" styleClass="text-label" />
+                <PasswordField fx:id="campoConfirmacaoSenha" promptText="Repita a senha digitada" />
+            </VBox>
+        </VBox>
+
+        <!-- Feedback de Validação (RNF5.3) -->
+        <Label fx:id="labelMensagem" wrapText="true" maxWidth="Infinity" alignment="CENTER" />
+
+        <!-- Botões de Ação -->
+        <VBox spacing="10.0">
+            <Button text="Criar Perfil e Acessar" onAction="#botaoCadastrar" maxWidth="Infinity" styleClass="btn-primary" />
+            <Button text="Voltar ao Login" onAction="#botaoCancelar" maxWidth="Infinity" styleClass="btn-secondary" />
+        </VBox>
+    </VBox>
+</VBox>

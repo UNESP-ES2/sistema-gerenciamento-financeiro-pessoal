@@ -1,0 +1,234 @@
+/* ==========================================================================
+   SGFP - SISTEMA DE GERENCIAMENTO FINANCEIRO PESSOAL
+   Tema de Design System: Lilás Moderno (RNF5.4, RNF5.1, RNF5.2, RNF5.3)
+   ========================================================================== */
+
+/* Raiz e Variáveis Gerais */
+.root {
+    -fx-font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+    -fx-font-size: 14px;
+    -fx-background-color: #FAF5FF; /* Fundo suave com leve matiz lilás */
+    -fx-text-fill: #1E1B2E;
+}
+
+/* Superfícies e Cards */
+.card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12px;
+    -fx-border-color: #E9D8FD;
+    -fx-border-radius: 12px;
+    -fx-border-width: 1px;
+    -fx-padding: 24px;
+    -fx-effect: dropshadow(gaussian, rgba(107, 70, 193, 0.08), 16, 0, 0, 4);
+}
+
+.card-header {
+    -fx-border-color: transparent transparent #F3E8FF transparent;
+    -fx-border-width: 0 0 1px 0;
+    -fx-padding: 0 0 16px 0;
+}
+
+/* Tipografia */
+.title-large {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #553C9A; /* Tom lilás profundo */
+}
+
+.title-medium {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2D2438;
+}
+
+.subtitle {
+    -fx-font-size: 13px;
+    -fx-text-fill: #6B7280;
+}
+
+.text-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #4A5568;
+}
+
+/* Entradas de Texto e Senha (RNF5.1) */
+.text-field, .password-field {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8px;
+    -fx-border-color: #CBD5E1;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1.5px;
+    -fx-padding: 10px 14px;
+    -fx-text-fill: #1E293B;
+    -fx-prompt-text-fill: #94A3B8;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #7C3AED; /* Borda ativa lilás vibrante */
+    -fx-background-color: #FFFFFF;
+    -fx-effect: dropshadow(gaussian, rgba(124, 58, 237, 0.25), 8, 0, 0, 0);
+}
+
+/* Botões Modernos e Micro-interações (RNF5.1, RNF5.4) */
+.btn-primary {
+    -fx-background-color: linear-gradient(to bottom right, #7C3AED, #6B46C1);
+    -fx-background-radius: 8px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-padding: 10px 20px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(107, 70, 193, 0.3), 8, 0, 0, 2);
+}
+
+.btn-primary:hover {
+    -fx-background-color: linear-gradient(to bottom right, #8B5CF6, #7C3AED);
+    -fx-effect: dropshadow(gaussian, rgba(107, 70, 193, 0.45), 10, 0, 0, 3);
+}
+
+.btn-primary:pressed {
+    -fx-background-color: #553C9A;
+    -fx-effect: none;
+}
+
+.btn-secondary {
+    -fx-background-color: #EDE9FE;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #6B46C1;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 18px;
+    -fx-cursor: hand;
+}
+
+.btn-secondary:hover {
+    -fx-background-color: #DDD6FE;
+    -fx-text-fill: #553C9A;
+}
+
+.btn-danger {
+    -fx-background-color: #FEE2E2;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #B91C1C;
+    -fx-font-weight: bold;
+    -fx-padding: 8px 16px;
+    -fx-cursor: hand;
+}
+
+.btn-danger:hover {
+    -fx-background-color: #FECACA;
+    -fx-text-fill: #991B1B;
+}
+
+.btn-link {
+    -fx-background-color: transparent;
+    -fx-text-fill: #7C3AED;
+    -fx-cursor: hand;
+    -fx-padding: 4px 8px;
+    -fx-underline: true;
+}
+
+.btn-link:hover {
+    -fx-text-fill: #553C9A;
+}
+
+/* Banners de Mensagens e Feedbacks Visuais (RNF5.3) */
+.banner-success {
+    -fx-background-color: #DCFCE7;
+    -fx-border-color: #86EFAC;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #166534;
+    -fx-padding: 10px 14px;
+    -fx-font-weight: bold;
+}
+
+.banner-error {
+    -fx-background-color: #FEE2E2;
+    -fx-border-color: #FCA5A5;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #991B1B;
+    -fx-padding: 10px 14px;
+    -fx-font-weight: bold;
+}
+
+.banner-warning {
+    -fx-background-color: #FEF3C7;
+    -fx-border-color: #FCD34D;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #92400E;
+    -fx-padding: 10px 14px;
+    -fx-font-weight: bold;
+}
+
+.banner-info {
+    -fx-background-color: #EDE9FE;
+    -fx-border-color: #C4B5FD;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #5B21B6;
+    -fx-padding: 10px 14px;
+    -fx-font-weight: bold;
+}
+
+/* Badges de Status de Conta */
+.badge-active {
+    -fx-background-color: #DCFCE7;
+    -fx-text-fill: #15803D;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12px;
+    -fx-padding: 4px 10px;
+}
+
+.badge-inactive {
+    -fx-background-color: #F1F5F9;
+    -fx-text-fill: #64748B;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12px;
+    -fx-padding: 4px 10px;
+}
+
+.badge-current {
+    -fx-background-color: #EDE9FE;
+    -fx-text-fill: #6B46C1;
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 12px;
+    -fx-padding: 4px 10px;
+    -fx-border-color: #C4B5FD;
+    -fx-border-radius: 12px;
+}
+
+/* Tabelas e Visualizadores de Dados */
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8px;
+    -fx-border-color: #E2E8F0;
+    -fx-border-radius: 8px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #FAF5FF;
+    -fx-text-fill: #553C9A;
+    -fx-font-weight: bold;
+    -fx-padding: 10px;
+    -fx-border-color: transparent transparent #E9D8FD transparent;
+}
+
+.table-view .table-cell {
+    -fx-padding: 12px 10px;
+    -fx-border-color: transparent transparent #F1F5F9 transparent;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #F5EEFD;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #EDE9FE;
+    -fx-text-fill: #1E1B2E;
+}
