@@ -11,6 +11,7 @@ public class Sessao {
 	private boolean isAutenticado;
 	private PerfilDeUsuario perfilAtivo;
 	private ContaBancaria contaAtiva;
+	private final java.util.List<ObservadorContaAtiva> observadores = new java.util.ArrayList<>();
 
 	public Sessao() {
 		this.isAutenticado = false;
@@ -41,6 +42,17 @@ public class Sessao {
 		this.isAutenticado = false;
 		this.perfilAtivo = null;
 		this.contaAtiva = null;
+		this.observadores.clear();
+	}
+
+	public void adicionarObservador(ObservadorContaAtiva observador) {
+		if (observador != null && !this.observadores.contains(observador)) {
+			this.observadores.add(observador);
+		}
+	}
+
+	public void removerObservador(ObservadorContaAtiva observador) {
+		this.observadores.remove(observador);
 	}
 
 	public PerfilDeUsuario getPerfilAtivo() {
@@ -54,6 +66,9 @@ public class Sessao {
 
 	public void setContaAtiva(ContaBancaria conta) {
 		this.contaAtiva = conta;
+		for (ObservadorContaAtiva obs : this.observadores) {
+			obs.atualizarVisualizacao(conta);
+		}
 	}
 
 	public void setContaAtiva() {
