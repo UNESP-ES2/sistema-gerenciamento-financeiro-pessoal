@@ -5,7 +5,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 
 /**
  * Gerenciador centralizado de navegação entre cenas JavaFX para janela única.

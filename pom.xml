@@ -79,7 +79,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>br.unesp.fct.sgfp/br.unesp.fct.sgfp.HelloApplication</mainClass>
+                            <mainClass>br.unesp.fct.sgfp/br.unesp.fct.sgfp.SgfpApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

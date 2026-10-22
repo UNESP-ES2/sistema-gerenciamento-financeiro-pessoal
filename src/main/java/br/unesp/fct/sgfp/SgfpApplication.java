@@ -11,7 +11,7 @@ import java.io.IOException;
  * Ponto de entrada da aplicação desktop SGFP em JavaFX.
  * Inicializa o NavegadorCenas e direciona para a tela de autenticação ou dashboard.
  */
-public class HelloApplication extends Application {
+public class SgfpApplication extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -28,4 +28,3 @@ public class HelloApplication extends Application {
         launch(args);
     }
 }
-
