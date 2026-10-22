@@ -44,7 +44,7 @@ public class EditarContaBancariaTest {
 	@Test
 	@DisplayName("Mensagens 1, 1.1 e 1.2: Deve obter e exibir dados atuais da conta para edição")
 	public void testObterContaParaEdicao() {
-		tela.obterConta("Minha Conta");
+		tela.editarContaBancaria("Minha Conta");
 
 		ContaBancaria carregada = tela.getContaCarregada();
 		assertNotNull(carregada, "A conta deve ser carregada na tela.");

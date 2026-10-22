@@ -48,8 +48,8 @@ public class TelaAutenticacaoPerfil {
 	 */
 	@FXML
 	public void botaoAutenticar() {
-		String nome = campoNome != null ? campoNome.getText() : (nomeEntrada != null ? nomeEntrada : "");
-		String senha = campoSenha != null ? campoSenha.getText() : (senhaEntrada != null ? senhaEntrada : "");
+		String nome = (campoNome != null && campoNome.getText() != null) ? campoNome.getText().trim() : (nomeEntrada != null ? nomeEntrada : "");
+		String senha = (campoSenha != null && campoSenha.getText() != null) ? campoSenha.getText() : (senhaEntrada != null ? senhaEntrada : "");
 
 		if (controlador != null) {
 			controlador.setTelaAutenticacaoPerfil(this);
@@ -58,9 +58,17 @@ public class TelaAutenticacaoPerfil {
 			if (verificar) {
 				this.mensagem = "Autenticado com sucesso!";
 				if (labelMensagem != null) {
+					labelMensagem.getStyleClass().removeAll("banner-error", "banner-info");
+					if (!labelMensagem.getStyleClass().contains("banner-success")) {
+						labelMensagem.getStyleClass().add("banner-success");
+					}
 					labelMensagem.setText(this.mensagem);
 				}
-				fecharJanela();
+				if (NavegadorCenas.getPalcoPrincipal() != null) {
+					NavegadorCenas.irParaDashboard();
+				} else {
+					fecharJanela();
+				}
 			}
 		}
 	}
@@ -72,6 +80,10 @@ public class TelaAutenticacaoPerfil {
 		this.mensagem = "Usuário ou senha inválidos.";
 		if (labelMensagem != null) {
 			// RF1.5: falha de autenticação genérica por segurança
+			labelMensagem.getStyleClass().removeAll("banner-success", "banner-info");
+			if (!labelMensagem.getStyleClass().contains("banner-error")) {
+				labelMensagem.getStyleClass().add("banner-error");
+			}
 			labelMensagem.setText(this.mensagem);
 		}
 	}
@@ -85,7 +97,7 @@ public class TelaAutenticacaoPerfil {
 
 	@FXML
 	public void botaoCriarPerfil() {
-		// Abre o fluxo de criação de perfil (TelaCadastrarPerfil)
+		NavegadorCenas.irParaCadastro();
 	}
 
 	/**
@@ -93,7 +105,19 @@ public class TelaAutenticacaoPerfil {
 	 */
 	@FXML
 	public void botaoEsqueceuSenha() {
-		String nome = campoNome != null ? campoNome.getText() : (nomeEntrada != null ? nomeEntrada : "");
+		String nome = (campoNome != null && campoNome.getText() != null) ? campoNome.getText().trim() : (nomeEntrada != null ? nomeEntrada : "");
+
+		if (nome.isEmpty()) {
+			this.mensagem = "Informe seu nome de usuário no campo acima para redefinir a senha.";
+			if (labelMensagem != null) {
+				labelMensagem.getStyleClass().removeAll("banner-success", "banner-error");
+				if (!labelMensagem.getStyleClass().contains("banner-warning")) {
+					labelMensagem.getStyleClass().add("banner-warning");
+				}
+				labelMensagem.setText(this.mensagem);
+			}
+			return;
+		}
 
 		if (controlador != null) {
 			controlador.setTelaAutenticacaoPerfil(this);
@@ -102,12 +126,24 @@ public class TelaAutenticacaoPerfil {
 			if (verificar) {
 				this.mensagem = "Senha redefinida e autenticado com sucesso!";
 				if (labelMensagem != null) {
+					labelMensagem.getStyleClass().removeAll("banner-error", "banner-warning");
+					if (!labelMensagem.getStyleClass().contains("banner-success")) {
+						labelMensagem.getStyleClass().add("banner-success");
+					}
 					labelMensagem.setText(this.mensagem);
 				}
-				fecharJanela();
+				if (NavegadorCenas.getPalcoPrincipal() != null) {
+					NavegadorCenas.irParaDashboard();
+				} else {
+					fecharJanela();
+				}
 			} else if (this.mensagem == null || this.mensagem.isEmpty()) {
 				this.mensagem = "Usuário não encontrado.";
 				if (labelMensagem != null) {
+					labelMensagem.getStyleClass().removeAll("banner-success", "banner-warning");
+					if (!labelMensagem.getStyleClass().contains("banner-error")) {
+						labelMensagem.getStyleClass().add("banner-error");
+					}
 					labelMensagem.setText(this.mensagem);
 				}
 			}

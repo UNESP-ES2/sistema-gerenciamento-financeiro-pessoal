@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="20.0" stylesheets="@css/theme.css"
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="br.unesp.fct.sgfp.view.TelaAutenticacaoPerfil">
+    <padding>
+        <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+    </padding>
+
+    <!-- Cabeçalho Institucional SGFP (RNF5.4) -->
+    <VBox alignment="CENTER" spacing="6.0">
+        <Label text="SGFP" styleClass="title-large" />
+        <Label text="Sistema de Gerenciamento Financeiro Pessoal" styleClass="subtitle" />
+    </VBox>
+
+    <!-- Card de Acesso (RNF5.1, RNF5.4) -->
+    <VBox maxWidth="420.0" spacing="16.0" styleClass="card">
+        <VBox spacing="4.0" styleClass="card-header">
+            <Label text="Acesso ao Sistema" styleClass="title-medium" />
+            <Label text="Autentique-se para gerenciar suas finanças pessoais" styleClass="subtitle" />
+        </VBox>
+
+        <!-- Formulário de Entrada -->
+        <VBox spacing="14.0">
+            <VBox spacing="6.0">
+                <Label text="Nome de Usuário" styleClass="text-label" />
+                <TextField fx:id="campoNome" promptText="Digite seu nome cadastrado" />
+            </VBox>
+
+            <VBox spacing="6.0">
+                <Label text="Senha de Acesso" styleClass="text-label" />
+                <PasswordField fx:id="campoSenha" promptText="Digite sua senha" />
+            </VBox>
+        </VBox>
+
+        <!-- Feedback de Mensagem / Erro (RNF5.3) -->
+        <Label fx:id="labelMensagem" wrapText="true" maxWidth="Infinity" alignment="CENTER" />
+
+        <!-- Botão Entrar -->
+        <Button text="Entrar no Sistema" onAction="#botaoAutenticar" maxWidth="Infinity" styleClass="btn-primary" />
+
+        <HBox alignment="CENTER">
+            <Button text="Esqueceu sua senha?" onAction="#botaoEsqueceuSenha" styleClass="btn-link" />
+        </HBox>
+
+        <Separator />
+
+        <HBox alignment="CENTER" spacing="6.0">
+            <Label text="Primeira utilização?" styleClass="subtitle" />
+            <Button text="Criar Novo Perfil" onAction="#botaoCriarPerfil" styleClass="btn-link" />
+        </HBox>
+    </VBox>
+</VBox>

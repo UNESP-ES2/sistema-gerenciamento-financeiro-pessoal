@@ -86,9 +86,22 @@
                             <noManPages>true</noManPages>
                             <stripDebug>true</stripDebug>
                             <noHeaderFiles>true</noHeaderFiles>
+                            <options>
+                                <option>--enable-native-access=javafx.graphics,ALL-UNNAMED</option>
+                            </options>
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+
+            <!-- Plugin Surefire para testes unitários com flags nativas silenciosas -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                    <argLine>--enable-native-access=javafx.graphics,ALL-UNNAMED</argLine>
+                </configuration>
             </plugin>
         </plugins>
     </build>
